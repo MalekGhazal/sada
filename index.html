@@ -1,20 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SADA — Organic Content Distribution Agency | Dubai &amp; MENA</title>
+    <title>
+      SADA — Clipping &amp; UGC Distribution Agency | Dubai &amp; MENA
+    </title>
     <meta
       name="description"
-      content="SADA is a Dubai-based organic content distribution agency serving the MENA region. We turn one upload into reach across a trusted, bilingual creator network. Part of the WeBelle family."
+      content="SADA is a Dubai-based clipping and UGC agency serving the MENA region. We cut your long-form content into short-form clips, produce original UGC, and publish it through a trusted bilingual creator network. Part of the WeBelle family."
     />
     <meta
       name="keywords"
-      content="content distribution agency, organic reach, creator network, MENA marketing agency, Dubai digital agency, bilingual content, SADA, WeBelle"
+      content="clipping agency, UGC agency, content distribution agency, organic reach, creator network, MENA marketing agency, Dubai digital agency, bilingual content, short form video, SADA, WeBelle"
     />
     <meta name="author" content="WeBelle" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.sadaclips.com/" />
+    <link rel="alternate" hreflang="en" href="https://www.sadaclips.com/" />
+    <link rel="alternate" hreflang="ar" href="https://www.sadaclips.com/ar/" />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://www.sadaclips.com/"
+    />
     <meta name="theme-color" content="#050a08" />
 
     <!-- Open Graph -->
@@ -22,42 +31,43 @@
     <meta property="og:site_name" content="SADA" />
     <meta
       property="og:title"
-      content="SADA — Organic Content Distribution Agency | Dubai & MENA"
+      content="SADA — Clipping & UGC Distribution Agency | Dubai & MENA"
     />
     <meta
       property="og:description"
-      content="One upload, a wave of organic reach. SADA is a bilingual content distribution agency built for the GCC and wider MENA region — part of the WeBelle family."
+      content="One upload, a wave of clips. SADA is a bilingual clipping and UGC agency built for the GCC and wider MENA region — part of the WeBelle family."
     />
     <meta property="og:url" content="https://www.sadaclips.com/" />
     <meta
       property="og:image"
-      content="https://www.sadaclips.com/assets/og-image.jpg"
+      content="https://www.sadaclips.com/assets/og-image.avif"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="SADA — Organic Content Distribution Agency"
+      content="SADA — Clipping & UGC Distribution Agency"
     />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_AE" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="SADA — Organic Content Distribution Agency | Dubai & MENA"
+      content="SADA — Clipping & UGC Distribution Agency | Dubai & MENA"
     />
     <meta
       name="twitter:description"
-      content="One upload, a wave of organic reach. SADA is a bilingual content distribution agency built for the GCC and wider MENA region."
+      content="One upload, a wave of clips. SADA is a bilingual clipping and UGC agency built for the GCC and wider MENA region."
     />
     <meta
       name="twitter:image"
-      content="https://www.sadaclips.com/assets/og-image.jpg"
+      content="https://www.sadaclips.com/assets/og-image.avif"
     />
     <meta
       name="twitter:image:alt"
-      content="SADA — Organic Content Distribution Agency"
+      content="SADA — Clipping & UGC Distribution Agency"
     />
 
     <!-- Favicon (inline SVG, no external asset needed) -->
@@ -73,7 +83,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -83,8 +93,8 @@
         "name": "SADA",
         "url": "https://www.sadaclips.com/",
         "logo": "https://www.sadaclips.com/assets/sada_logo.png",
-        "image": "https://www.sadaclips.com/assets/og-image.jpg",
-        "description": "Organic content distribution agency based in Dubai, serving the MENA region. Bilingual EN/AR content, published through a trusted creator network.",
+        "image": "https://www.sadaclips.com/assets/og-image.avif",
+        "description": "Clipping and UGC agency based in Dubai, serving the MENA region. We turn long-form content into short-form clips, produce original creator UGC, and distribute it bilingually in English and Arabic through a vetted creator network.",
         "email": "malek@webelle.ae",
         "telephone": "+971568457550",
         "address": {
@@ -93,6 +103,7 @@
           "addressCountry": "AE"
         },
         "areaServed": "MENA",
+        "availableLanguage": ["en", "ar"],
         "sameAs": [
           "https://www.instagram.com/sadaclip/",
           "https://www.tiktok.com/@sada.clips",
@@ -109,7 +120,7 @@
   <body>
     <header id="siteHeader">
       <div class="wrap">
-        <a href="#top" class="logo">
+        <a href="#top" class="logo" aria-label="SADA — home">
           <img
             src="/assets/sada_logo.png"
             alt="SADA logo"
@@ -119,12 +130,19 @@
           />
         </a>
         <nav class="links">
+          <a href="#services">What we do</a>
           <a href="#work">How it works</a>
           <a href="#why">Why SADA</a>
           <a href="#verticals">Who it's for</a>
           <a href="#faq">FAQ</a>
         </nav>
-        <a href="#contact" class="btn btn-glow">Book a Strategy Call</a>
+        <div class="header-actions">
+          <nav class="lang-switch" aria-label="Language">
+            <a href="/" hreflang="en" lang="en" aria-current="true">EN</a>
+            <a href="/ar/" hreflang="ar" lang="ar">AR</a>
+          </nav>
+          <a href="#contact" class="btn btn-glow">Book a Strategy Call</a>
+        </div>
       </div>
     </header>
 
@@ -134,7 +152,7 @@
       <div class="watermark"></div>
       <div class="wrap">
         <span class="category-tag"
-          >Content Distribution Agency · Dubai &amp; MENA</span
+          >Clipping &amp; UGC Agency · Dubai &amp; MENA</span
         >
 
         <div class="badge">
@@ -161,16 +179,17 @@
         </p>
 
         <p class="lede">
-          SADA helps <b>podcasters, musicians, creators, and brands</b> across
-          the region grow their reach on TikTok, Instagram, and YouTube. We take
-          the content you already have and get it in front of far more people,
-          published through a trusted network of
-          <b>real, vetted creators</b> instead of a paid ad account.
+          SADA is a clipping and UGC agency for
+          <b>podcasters, musicians, creators, and brands</b> across the region.
+          We cut your long-form content into short-form clips, produce original
+          <b>UGC</b> around it, and publish everything through a trusted network
+          of <b>real, vetted creators</b> instead of a paid ad account.
           <span class="g">One upload in, a wave of new reach out</span> — no ad
           spend required.
         </p>
 
         <div class="checklist">
+          <span>Clipping + UGC</span>
           <span>No ad spend</span>
           <span>Real creators only</span>
           <span>Bilingual EN / AR</span>
@@ -197,11 +216,11 @@
       <div class="wrap">
         <div class="stat">
           <div class="num">40+</div>
-          <div class="label">posts per upload</div>
+          <div class="label">clips per upload</div>
         </div>
         <div class="stat">
           <div class="num">EN / AR</div>
-          <div class="label">bilingual content</div>
+          <div class="label">bilingual captions</div>
         </div>
         <div class="stat">
           <div class="num">48–72h</div>
@@ -214,7 +233,63 @@
       </div>
     </div>
 
-    <section id="work">
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">What we do</span>
+          <h2>Clipping, UGC, and the network that carries it</h2>
+          <p>
+            Three services that work best together — cut it, create around it,
+            then put it everywhere.
+          </p>
+        </div>
+        <div class="svc-grid">
+          <div class="svc reveal">
+            <div class="tag">Service 01</div>
+            <h3>Clipping</h3>
+            <p>
+              We watch your long-form content end to end and pull the moments
+              worth sharing — then cut, caption, and format them for every feed.
+            </p>
+            <ul>
+              <li>Podcasts, streams, interviews, and YouTube uploads</li>
+              <li>Vertical 9:16 cuts with EN and AR captions</li>
+              <li>Hooks written per clip, not copy-pasted</li>
+            </ul>
+          </div>
+          <div class="svc reveal">
+            <div class="tag">Service 02</div>
+            <h3>UGC</h3>
+            <p>
+              Original creator-made content shot for your brand — the talking
+              heads, unboxings, and demos that read as a recommendation instead
+              of an ad.
+            </p>
+            <ul>
+              <li>Vetted regional creators, briefed and directed by us</li>
+              <li>Product demos, reviews, testimonials, and skits</li>
+              <li>Full usage rights, ready for organic or paid</li>
+            </ul>
+          </div>
+          <div class="svc reveal">
+            <div class="tag">Service 03</div>
+            <h3>Distribution</h3>
+            <p>
+              Clips and UGC go live across our creator network at once, so a
+              single piece of content gets dozens of chances to land instead of
+              one.
+            </p>
+            <ul>
+              <li>TikTok, Instagram, YouTube Shorts, and X</li>
+              <li>Real accounts with real audiences — no bots</li>
+              <li>Live performance tracking on one dashboard</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="alt-bg">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">How it works</span>
@@ -234,9 +309,9 @@
           </div>
           <div class="step reveal">
             <div class="idx">02 — PRODUCE</div>
-            <h3>Bilingual production</h3>
+            <h3>Clipping &amp; UGC</h3>
             <p>
-              Our team produces polished content, captioned for EN and AR
+              We cut the clips and shoot the UGC, captioned for EN and AR
               audiences.
             </p>
           </div>
@@ -244,7 +319,8 @@
             <div class="idx">03 — DISTRIBUTE</div>
             <h3>Release the echo</h3>
             <p>
-              Content goes live across a trusted creator network, all at once.
+              Everything goes live across a trusted creator network, all at
+              once.
             </p>
           </div>
           <div class="step reveal">
@@ -256,7 +332,7 @@
       </div>
     </section>
 
-    <section id="why" class="alt-bg">
+    <section id="why">
       <div class="wrap">
         <div class="why-grid">
           <div class="why-list">
@@ -270,8 +346,8 @@
               <div>
                 <h4>Bilingual by default</h4>
                 <p>
-                  Every piece of content is produced and captioned for English
-                  and Arabic audiences from day one, not translated as an
+                  Every clip and every UGC brief is produced for English and
+                  Arabic audiences from day one, not translated as an
                   afterthought.
                 </p>
               </div>
@@ -291,7 +367,7 @@
               <div>
                 <h4>Built for the region</h4>
                 <p>
-                  Our network understands Gulf and Levant audiences natively —
+                  Our creators understand Gulf and Levant audiences natively —
                   the humor, pacing, and platforms that matter here.
                 </p>
               </div>
@@ -311,38 +387,38 @@
             <div class="ring w1"></div>
             <div class="ring w2"></div>
             <div class="ring w3"></div>
-            <span class="word">صدى</span>
+            <span class="word" lang="ar" dir="rtl">صدى</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="verticals">
+    <section id="verticals" class="alt-bg">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Who it's for</span>
           <h2>Whoever's talking, we make it travel</h2>
-          <p>Four kinds of clients, one distribution engine.</p>
+          <p>Eight kinds of clients, one clipping and UGC engine.</p>
         </div>
         <div class="vgrid">
           <div class="vcard reveal">
             <div class="glyph">01</div>
             <h3>Podcasters</h3>
             <p>
-              Every episode becomes a wave of content without touching your
+              Every episode becomes a batch of clips without touching your
               recording flow.
             </p>
           </div>
           <div class="vcard reveal">
             <div class="glyph">02</div>
             <h3>Streamers</h3>
-            <p>Fast turnaround built for moments that don't wait.</p>
+            <p>Fast clipping built for moments that don't wait.</p>
           </div>
           <div class="vcard reveal">
             <div class="glyph">03</div>
             <h3>Brands &amp; founders</h3>
             <p>
-              Talks, demos, and interviews, turned into a paid-media
+              UGC and clipped talks, demos, and interviews — a paid-media
               alternative.
             </p>
           </div>
@@ -350,7 +426,7 @@
             <div class="glyph">04</div>
             <h3>Educators</h3>
             <p>
-              Long lessons, distilled into moments people actually finish
+              Long lessons, clipped into moments people actually finish
               watching.
             </p>
           </div>
@@ -366,7 +442,7 @@
             <div class="glyph">06</div>
             <h3>Content creators</h3>
             <p>
-              Grow beyond your own following without spending every hour filming
+              Grow beyond your own following without spending every hour editing
               for it.
             </p>
           </div>
@@ -374,7 +450,7 @@
             <div class="glyph">07</div>
             <h3>YouTubers</h3>
             <p>
-              Long-form videos, turned into a second stream of reach on every
+              Long-form videos, clipped into a second stream of reach on every
               other platform.
             </p>
           </div>
@@ -390,7 +466,7 @@
       </div>
     </section>
 
-    <section id="faq" class="alt-bg">
+    <section id="faq">
       <div class="wrap">
         <div class="section-head reveal center">
           <span class="eyebrow" style="justify-content: center">FAQ</span>
@@ -403,9 +479,25 @@
             </button>
             <div class="faq-a">
               <p>
-                SADA is an organic content distribution agency — we help your
-                content reach far more people through a trusted creator network,
-                without relying on paid ads.
+                Three things: we clip your long-form content into short-form
+                video, we produce original UGC with regional creators, and we
+                distribute both across a trusted creator network — all without
+                relying on paid ads.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              What's the difference between clipping and UGC?<span class="plus"
+                >+</span
+              >
+            </button>
+            <div class="faq-a">
+              <p>
+                Clipping works with footage you already have — we cut your
+                podcast, stream, or video into short-form moments. UGC is new
+                footage: creators shoot original content about your product or
+                brand, briefed and directed by us. Most clients run both.
               </p>
             </div>
           </div>
@@ -415,9 +507,9 @@
             </button>
             <div class="faq-a">
               <p>
-                Pricing scales with content volume and service level. Book a
-                strategy call and we'll put together a quote based on what
-                you're working with.
+                Pricing scales with clip volume, UGC output, and service level.
+                Book a strategy call and we'll put together a quote based on
+                what you're working with.
               </p>
             </div>
           </div>
@@ -427,8 +519,9 @@
             </button>
             <div class="faq-a">
               <p>
-                Most clients see their first batch of content live within 48–72
-                hours of onboarding.
+                Most clients see their first batch of clips live within 48–72
+                hours of onboarding. UGC shoots take a little longer, since
+                creators need briefing and filming time.
               </p>
             </div>
           </div>
@@ -438,9 +531,9 @@
             </button>
             <div class="faq-a">
               <p>
-                Yes — we're always onboarding bilingual creators into the
-                network. Reach out via WhatsApp or the contact section below to
-                apply.
+                Yes — we're always onboarding bilingual clippers and UGC
+                creators into the network. Reach out via WhatsApp or the contact
+                section below to apply.
               </p>
             </div>
           </div>
@@ -448,7 +541,7 @@
       </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="contact alt-bg" id="contact">
       <div class="glow-blob g1" style="top: -260px"></div>
       <div class="wrap">
         <div class="section-head reveal center">
@@ -473,10 +566,10 @@
           <div class="contact-side">
             <div class="contact-card">
               <h3>Get in touch directly</h3>
-              <a class="contact-line" href="mailto:malek@webelle.ae"
+              <a class="contact-line ltr" href="mailto:malek@webelle.ae"
                 >malek@webelle.ae</a
               >
-              <a class="contact-line" href="tel:+971568457550"
+              <a class="contact-line ltr" href="tel:+971568457550"
                 >+971 56 845 7550</a
               >
               <a
@@ -530,8 +623,8 @@
           <div class="cols">
             <div class="col">
               <h4>Agency</h4>
-              <a href="#work">How it works</a><a href="#why">Why SADA</a
-              ><a href="#verticals">Who it's for</a>
+              <a href="#services">What we do</a><a href="#work">How it works</a
+              ><a href="#why">Why SADA</a><a href="#verticals">Who it's for</a>
             </div>
             <div class="col">
               <h4>Creators</h4>
@@ -557,6 +650,11 @@
                 >WhatsApp</a
               >
             </div>
+            <div class="col">
+              <h4>Language</h4>
+              <a href="/" hreflang="en">English</a
+              ><a href="/ar/" hreflang="ar" lang="ar">العربية</a>
+            </div>
           </div>
         </div>
         <div class="bottom">
@@ -580,6 +678,6 @@
       src="https://assets.calendly.com/assets/external/widget.js"
       async
     ></script>
-    <script src="script.js" defer></script>
+    <script src="/script.js" defer></script>
   </body>
 </html>
