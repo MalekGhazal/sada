@@ -35,3 +35,28 @@ document.querySelectorAll('.faq-item').forEach((item) => {
     a.style.maxHeight = !isOpen ? a.scrollHeight + 'px' : null;
   });
 });
+
+(function () {
+  const words = [
+    'فيديو واحد',
+    'بث واحد',
+    'أغنية واحدة',
+    'منتج واحد',
+    'خدمة واحدة',
+    'حدث واحد',
+    'فلم واحد',
+    'مسلسل واحد',
+  ];
+  const el = document.getElementById('rotWord');
+  if (!el) return;
+
+  let i = 0;
+  setInterval(() => {
+    el.classList.add('rot-out');
+    setTimeout(() => {
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+      el.classList.remove('rot-out');
+    }, 350); // matches the CSS transition duration
+  }, 2000);
+})();
