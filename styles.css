@@ -15,7 +15,7 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* Arabic type stack — swapped in on the /ar/ page only */
+/* Arabic type stack — swapped in on the Arabic page only */
 html[lang='ar'] {
   --font-display: 'IBM Plex Sans Arabic', 'Space Grotesk', sans-serif;
   --font-body: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
@@ -549,7 +549,7 @@ section {
   }
 }
 
-/* SERVICES — clipping / UGC / distribution */
+/* SERVICES — clipping / UGC */
 .svc-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

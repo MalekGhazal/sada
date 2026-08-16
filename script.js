@@ -36,19 +36,20 @@ document.querySelectorAll('.faq-item').forEach((item) => {
   });
 });
 
+// Rotating hero word — language-agnostic. Reads its word list from the
+// data-words attribute on #rotWord (a JSON array string), so the same
+// script drives both the Arabic and English homepages.
 (function () {
-  const words = [
-    'فيديو واحد',
-    'بث واحد',
-    'أغنية واحدة',
-    'منتج واحد',
-    'خدمة واحدة',
-    'حدث واحد',
-    'فلم واحد',
-    'مسلسل واحد',
-  ];
   const el = document.getElementById('rotWord');
   if (!el) return;
+
+  let words = [];
+  try {
+    words = JSON.parse(el.getAttribute('data-words') || '[]');
+  } catch (e) {
+    words = [];
+  }
+  if (!words.length) return;
 
   let i = 0;
   setInterval(() => {
