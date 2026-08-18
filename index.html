@@ -71,10 +71,25 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonts load without blocking first render: preload + swap the
+         rel to 'stylesheet' once fetched, matching the immediate fallback
+         via the noscript tag for non-JS agents. font-display=swap in the
+         URL means text is never invisible while waiting. -->
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap"
-      rel="stylesheet"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+      />
+    </noscript>
     <link rel="stylesheet" href="/styles.css" />
 
     <!-- Structured data -->
@@ -114,13 +129,17 @@
     <header id="siteHeader">
       <div class="wrap">
         <a href="#top" class="logo" aria-label="صدى — الصفحة الرئيسية">
-          <img
-            src="/assets/sada_logo.png"
-            alt="شعار صدى"
-            class="logo-mark"
-            width="32"
-            height="32"
-          />
+          <picture>
+            <source srcset="/assets/sada_logo.webp" type="image/webp" />
+            <img
+              src="/assets/sada_logo.png"
+              alt="شعار صدى"
+              class="logo-mark"
+              width="79"
+              height="32"
+              decoding="async"
+            />
+          </picture>
         </a>
         <nav class="links">
           <a href="#services">ماذا نقدّم</a>
@@ -139,458 +158,471 @@
       </div>
     </header>
 
-    <section class="hero" id="top">
-      <div class="glow-blob g1"></div>
-      <div class="glow-blob g2"></div>
-      <div class="watermark"></div>
-      <div class="wrap">
-        <span class="category-tag">وكالة Clipping & UGC · الأولى عربيا</span>
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="glow-blob g1"></div>
+        <div class="glow-blob g2"></div>
+        <div class="watermark"></div>
+        <div class="wrap">
+          <span class="category-tag">وكالة Clipping & UGC · الأولى عربيا</span>
 
-        <div class="badge">
-          <div class="avatars">
-            <div class="av"></div>
-            <div class="av"></div>
-            <div class="av"></div>
-          </div>
-          <span
-            >نستقبل الآن <b>الدفعة الأولى</b> من صنّاع المحتوى والعلامات
-            التجارية.</span
-          >
-        </div>
-
-        <h1>
-          <span
-            class="glow"
-            id="rotWord"
-            data-words='["فيديو واحد","بث واحد","أغنية واحدة","منتج واحد","خدمة واحدة","حدث واحد","فلم واحد","مسلسل واحد"]'
-            >فيديو واحد</span
-          ><br />
-          ينتشر في كل مكان
-        </h1>
-
-        <p class="sub">
-          لن تقوم بالنشر, <span class="hl">جيش من صناع المحتوى</span> سيقوم بذلك
-        </p>
-
-        <p class="lede">
-          صدى وكالة Clipping ومحتوى UGC تخدم
-          <b>البودكاست، والموسيقيين، وصنّاع المحتوى، والعلامات التجارية</b>
-          في العالم العربي. نقتطع من محتواك الطويل أفضل اللحظات و نحوّلها لمقاطع
-          قصيرة أو ننشئ <b>محتوى UGC</b> جديداً وأصلياً من الصفر، منشأ من صانع
-          محتوى بشكل شخصي، وننشر كل ذلك عبر شبكة من
-          <b>صنّاع محتوى حقيقيين ومختارين بعناية</b> بدل الإعلانات المدفوعة.
-          <span class="g"
-            >ميزانية واحدة، إنتشار في كل مكان على مواقع التواصل الإجتماعي</span
-          >.
-        </p>
-
-        <div class="checklist">
-          <span>Clipping + UGC</span>
-          <span>ميزانية واحدة</span>
-          <span>صنّاع محتوى حقيقيون</span>
-          <span>عربي وإنجليزي</span>
-        </div>
-
-        <div class="cta-row">
-          <a href="#contact" class="btn btn-glow">احجز مكالمة الآن!</a>
-          <a href="#work" class="btn btn-outline">شاهد كيف نعمل</a>
-        </div>
-
-        <div class="featured">
-          <div class="label">محتوانا ينتشر على</div>
-          <div class="row">
-            <span>TikTok</span>
-            <span>Instagram</span>
-            <span>YouTube Shorts</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="stats">
-      <div class="wrap">
-        <div class="stat">
-          <div class="num">2</div>
-          <div class="label">خدمتين فقط</div>
-        </div>
-        <div class="stat">
-          <div class="num">AR / EN</div>
-          <div class="label">ترجمة نصية بلغتين</div>
-        </div>
-        <div class="stat">
-          <div class="num">48–72</div>
-          <div class="label">ساعة لتبدأ برؤية النتائج</div>
-        </div>
-        <div class="stat">
-          <div class="num">100%</div>
-          <div class="label">محتوى عضوي حقيقي</div>
-        </div>
-      </div>
-    </div>
-
-    <section id="services">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">ماذا نقدّم</span>
-          <h2>Clipping، ومحتوى UGC، ننشئه ونوصله لجمهور جديد</h2>
-          <p>
-            خدمتان متكاملتان, لتحويل المحتوى إلى مقاطع قصيرة جذابة, أو إنتاج
-            محتوى أصلي من الصفر, ثم نشره عبر مواقع التواصل الاجتماعي.
-          </p>
-        </div>
-        <div class="svc-grid">
-          <div class="svc reveal">
-            <div class="tag">الخدمة 01</div>
-            <h3>Clipping</h3>
-            <p>
-              نحوّل محتواك الطويل إلى مقاطع قصيرة جاهزة للنشر, ونوزعها عبر شبكة
-              من صناع المحتوى حيث تنشر في مواقع التواصل الاجتماعي.
-            </p>
-            <ul>
-              <li>البودكاست، والبث المباشر، والمقابلات، والفيديوهات الطويلة</li>
-              <li>مقاطع عمودية 9:16 بنص عربي متزامن يظهر على الفيديو</li>
-              <li>Hook لكل مقطع على حدة, لزيادة جاذبيته على المنصات</li>
-              <li>
-                نشر المقاطع عبر شبكة SADA على تيك توك وإنستغرام ويوتيوب شورتس
-              </li>
-              <li>حسابات حقيقية بجمهور نشط وملائم للمحتوى</li>
-              <li>متابعة أداء المحتوى بشكل مباشر</li>
-            </ul>
-          </div>
-          <div class="svc reveal">
-            <div class="tag">الخدمة 02</div>
-            <h3>محتوى UGC</h3>
-            <p>
-              نصوّر محتوى أصليا لعملائنا من خلال صناع محتوى مناسبين لجمهورك, ثم
-              ننشره عبر شبكتنا للوصول إلى جمهور جديد.
-            </p>
-            <ul>
-              <li>صنّاع محتوى من المنطقة، نختارهم ونوجّههم بأنفسنا</li>
-              <li>محتوى أصلي يتضمن عروض المنتجات, المراجعات, والخدمات</li>
-              <li>محتوى مصمم ليبدو عفويا ومناسبا لمواقع التواصل الاجتماعي</li>
-              <li>حقوق استخدام كاملة، جاهزة للنشر العضوي أو المدفوع</li>
-              <li>
-                نشر المقاطع عبر شبكة SADA على تيك توك وإنستغرام ويوتيوب شورتس
-              </li>
-              <li>متابعة أداء المحتوى بشكل مباشر</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="work" class="alt-bg">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">كيف نعمل</span>
-          <h2>من المكالمة إلى الخوارزمية</h2>
-          <p>
-            منظومة نديرها بالكامل — توافق على الخطة مرة واحدة، ثم تراقب الوصول
-            وهو يتضاعف.
-          </p>
-        </div>
-        <div class="steps">
-          <div class="step reveal">
-            <div class="idx">00 — تحديد الميزانية</div>
-            <h3>نجري مكالمة</h3>
-            <p>
-              تحدد لنا ميزانية الحملة ونوع المحتوى المطلوب والمنطقة المستهدفة.
-            </p>
-          </div>
-          <div class="step reveal">
-            <div class="idx">01 — المحتوى</div>
-            <h3>حدد لنا المحتوى</h3>
-            <p>
-              ارفع البودكاست أو البث أو الفيديو الطويل أو قم بوصف المحتوى الذي
-              ترغب في إنشائه من الصفر.
-            </p>
-          </div>
-          <div class="step reveal">
-            <div class="idx">02 — الإنتاج</div>
-            <h3>Clipping ومحتوى UGC</h3>
-            <p>نقصّ المقاطع ونصوّر محتوى UGC حسب طلبك.</p>
-          </div>
-          <div class="step reveal">
-            <div class="idx">03 — النشر</div>
-            <h3>أطلق الصدى</h3>
-            <p>كل شيء يُنشر عبر مواقع التواصل الاجتماعي، دفعة واحدة.</p>
-          </div>
-          <div class="step reveal">
-            <div class="idx">04 — التقارير</div>
-            <h3>تابع كل شيء</h3>
-            <p>المشاهدات والوصول والأداء، مباشرة على لوحة واحدة.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="why">
-      <div class="wrap">
-        <div class="why-grid">
-          <div class="why-list">
+          <div class="badge">
+            <div class="avatars">
+              <div class="av"></div>
+              <div class="av"></div>
+              <div class="av"></div>
+            </div>
             <span
-              class="eyebrow"
-              style="margin-bottom: 24px; display: inline-flex"
-              >لماذا صدى</span
+              >نستقبل الآن <b>الدفعة الأولى</b> من صنّاع المحتوى والعلامات
+              التجارية.</span
             >
-            <div class="why-item reveal">
-              <span class="n">01</span>
-              <div>
-                <h4>محتوى بلغة صانعه</h4>
-                <p>
-                  كل Clip وكل UGC يُنتَج بلغة صانع المحتوى نفسه — عربي أو
-                  إنجليزي حسب ما يناسب محتواه، لا ترجمة تُضاف لاحقاً.
-                </p>
-              </div>
-            </div>
-            <div class="why-item reveal">
-              <span class="n">02</span>
-              <div>
-                <h4>صنّاع محتوى حقيقيون، بلا حسابات وهمية</h4>
-                <p>
-                  كل حساب في الشبكة مُتحقَّق منه وحقيقي — المشاهدات الوهمية
-                  تعرّض علامتك وتقاريرك للخطر.
-                </p>
-              </div>
-            </div>
-            <div class="why-item reveal">
-              <span class="n">03</span>
-              <div>
-                <h4>مصمّم للعالم العربي</h4>
-                <p>
-                  صنّاع محتوانا يفهمون الجمهور العربي - على علم بالمنصات,
-                  الترندات, و المحتوى الجاذب للمشاهدات.
-                </p>
-              </div>
-            </div>
-            <div class="why-item reveal">
-              <span class="n">04</span>
-              <div>
-                <h4>شفافية كاملة</h4>
-                <p>
-                  المشاهدات والوصول والأداء تُتابَع مباشرة — بلا تقارير غامضة،
-                  وبلا انتظار ملف شهري.
-                </p>
-              </div>
+          </div>
+
+          <h1>
+            <span
+              class="glow"
+              id="rotWord"
+              data-words='["فيديو واحد","بث واحد","أغنية واحدة","منتج واحد","خدمة واحدة","حدث واحد","فلم واحد","مسلسل واحد"]'
+              >فيديو واحد</span
+            ><br />
+            ينتشر في كل مكان
+          </h1>
+
+          <p class="sub">
+            لن تقوم بالنشر, <span class="hl">جيش من صناع المحتوى</span> سيقوم
+            بذلك
+          </p>
+
+          <p class="lede">
+            صدى وكالة Clipping ومحتوى UGC تخدم
+            <b>البودكاست، والموسيقيين، وصنّاع المحتوى، والعلامات التجارية</b>
+            في العالم العربي. نقتطع من محتواك الطويل أفضل اللحظات و نحوّلها
+            لمقاطع قصيرة أو ننشئ <b>محتوى UGC</b> جديداً وأصلياً من الصفر، منشأ
+            من صانع محتوى بشكل شخصي، وننشر كل ذلك عبر شبكة من
+            <b>صنّاع محتوى حقيقيين ومختارين بعناية</b> بدل الإعلانات المدفوعة.
+            <span class="g"
+              >ميزانية واحدة، إنتشار في كل مكان على مواقع التواصل
+              الإجتماعي</span
+            >.
+          </p>
+
+          <div class="checklist">
+            <span>Clipping + UGC</span>
+            <span>ميزانية واحدة</span>
+            <span>صنّاع محتوى حقيقيون</span>
+            <span>عربي وإنجليزي</span>
+          </div>
+
+          <div class="cta-row">
+            <a href="#contact" class="btn btn-glow">احجز مكالمة الآن!</a>
+            <a href="#work" class="btn btn-outline">شاهد كيف نعمل</a>
+          </div>
+
+          <div class="featured">
+            <div class="label">محتوانا ينتشر على</div>
+            <div class="row">
+              <span>TikTok</span>
+              <span>Instagram</span>
+              <span>YouTube Shorts</span>
             </div>
           </div>
-          <div class="why-visual reveal">
-            <div class="ring w1"></div>
-            <div class="ring w2"></div>
-            <div class="ring w3"></div>
-            <span class="word" lang="en" dir="ltr">SADA</span>
+        </div>
+      </section>
+
+      <div class="stats">
+        <div class="wrap">
+          <div class="stat">
+            <div class="num">2</div>
+            <div class="label">خدمتين فقط</div>
+          </div>
+          <div class="stat">
+            <div class="num">AR / EN</div>
+            <div class="label">ترجمة نصية بلغتين</div>
+          </div>
+          <div class="stat">
+            <div class="num">48–72</div>
+            <div class="label">ساعة لتبدأ برؤية النتائج</div>
+          </div>
+          <div class="stat">
+            <div class="num">100%</div>
+            <div class="label">محتوى عضوي حقيقي</div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="verticals" class="alt-bg">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">لمن هذه الخدمة</span>
-          <h2>مهما كان محتواك، نجعله يصل</h2>
-          <p>ثمانية أنواع من العملاء، ومحرّك واحد للـClipping ومحتوى UGC.</p>
-        </div>
-        <div class="vgrid">
-          <div class="vcard reveal">
-            <div class="glyph">01</div>
-            <h3>البودكاسترز</h3>
-            <p>كل حلقة تتحول إلى مقاطع كثيرة وتنشر في كل مكان.</p>
-          </div>
-          <div class="vcard reveal">
-            <div class="glyph">02</div>
-            <h3>الستريمرز</h3>
-            <p>نأخذ أفضل اللحظات من كل بث ونحوله إلى ترند.</p>
-          </div>
-          <div class="vcard reveal">
-            <div class="glyph">03</div>
-            <h3>العلامات التجارية والشركات</h3>
-            <p>محتوى عن الخدمات والمنتجات والعروض والمقابلات.</p>
-          </div>
-          <div class="vcard reveal">
-            <div class="glyph">04</div>
-            <h3>شركات الإنتاج الإعلامي والسينمائي</h3>
-            <p>محتوى عن المسلسلات والأفلام والبرامج التلفزيونية</p>
-          </div>
-          <div class="vcard reveal">
-            <div class="glyph">05</div>
-            <h3>الموسيقيون</h3>
+      <section id="services">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="eyebrow">ماذا نقدّم</span>
+            <h2>Clipping، ومحتوى UGC، ننشئه ونوصله لجمهور جديد</h2>
             <p>
-              الكثير من المقاطع القصيرة التي تروّج لأغانيك، حفلاتك، وألبوماتك.
+              خدمتان متكاملتان, لتحويل المحتوى إلى مقاطع قصيرة جذابة, أو إنتاج
+              محتوى أصلي من الصفر, ثم نشره عبر مواقع التواصل الاجتماعي.
             </p>
           </div>
-          <div class="vcard reveal">
-            <div class="glyph">06</div>
-            <h3>صنّاع المحتوى</h3>
+          <div class="svc-grid">
+            <div class="svc reveal">
+              <div class="tag">الخدمة 01</div>
+              <h3>Clipping</h3>
+              <p>
+                نحوّل محتواك الطويل إلى مقاطع قصيرة جاهزة للنشر, ونوزعها عبر
+                شبكة من صناع المحتوى حيث تنشر في مواقع التواصل الاجتماعي.
+              </p>
+              <ul>
+                <li>
+                  البودكاست، والبث المباشر، والمقابلات، والفيديوهات الطويلة
+                </li>
+                <li>مقاطع عمودية 9:16 بنص عربي متزامن يظهر على الفيديو</li>
+                <li>Hook لكل مقطع على حدة, لزيادة جاذبيته على المنصات</li>
+                <li>
+                  نشر المقاطع عبر شبكة SADA على تيك توك وإنستغرام ويوتيوب شورتس
+                </li>
+                <li>حسابات حقيقية بجمهور نشط وملائم للمحتوى</li>
+                <li>متابعة أداء المحتوى بشكل مباشر</li>
+              </ul>
+            </div>
+            <div class="svc reveal">
+              <div class="tag">الخدمة 02</div>
+              <h3>محتوى UGC</h3>
+              <p>
+                نصوّر محتوى أصليا لعملائنا من خلال صناع محتوى مناسبين لجمهورك,
+                ثم ننشره عبر شبكتنا للوصول إلى جمهور جديد.
+              </p>
+              <ul>
+                <li>صنّاع محتوى من المنطقة، نختارهم ونوجّههم بأنفسنا</li>
+                <li>محتوى أصلي يتضمن عروض المنتجات, المراجعات, والخدمات</li>
+                <li>محتوى مصمم ليبدو عفويا ومناسبا لمواقع التواصل الاجتماعي</li>
+                <li>حقوق استخدام كاملة، جاهزة للنشر العضوي أو المدفوع</li>
+                <li>
+                  نشر المقاطع عبر شبكة SADA على تيك توك وإنستغرام ويوتيوب شورتس
+                </li>
+                <li>متابعة أداء المحتوى بشكل مباشر</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="alt-bg">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="eyebrow">كيف نعمل</span>
+            <h2>من المكالمة إلى الخوارزمية</h2>
             <p>
-              كل محتوى تصنعه يتحول إلى الكثير من المقاطع القصيرة التي تجذب
-              جمهوراً جديداً.
+              منظومة نديرها بالكامل — توافق على الخطة مرة واحدة، ثم تراقب الوصول
+              وهو يتضاعف.
             </p>
           </div>
-          <div class="vcard reveal">
-            <div class="glyph">07</div>
-            <h3>اليوتيوبرز</h3>
-            <p>
-              كل فيديو طويل يتحول إلى عشرات المقاطع القصيرة التي تجذب مشاهدين
-              جدد.
-            </p>
-          </div>
-          <div class="vcard reveal">
-            <div class="glyph">08</div>
-            <h3>الأحداث والفعاليات والحفلات الموسيقية</h3>
-            <p>محتوى فيروسي يجذب الحضور ويزيد مبيعات التذاكر.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="wrap">
-        <div class="section-head reveal center">
-          <span class="eyebrow" style="justify-content: center"
-            >الأسئلة الشائعة</span
-          >
-          <h2>أسئلة، وإجابات</h2>
-        </div>
-        <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-q">
-              ما الذي تقدّمه صدى بالضبط؟<span class="plus">+</span>
-            </button>
-            <div class="faq-a">
+          <div class="steps">
+            <div class="step reveal">
+              <div class="idx">00 — تحديد الميزانية</div>
+              <h3>نجري مكالمة</h3>
               <p>
-                نعمل مع شبكة من صناع المحتوى المتخصصين في الفيديوهات القصيرة،
-                حيث يختارون أفضل اللحظات من المحتوى الطويل أو ينتجون محتوى
-                أصلياً لعملائنا، ثم يحولونها إلى مقاطع جذابة وينشرونها عبر
-                حساباتهم على TikTok و Instagram و YouTube Shorts للوصول إلى
-                جماهير جديدة و الإنتشار بشكل فيروسي.
+                تحدد لنا ميزانية الحملة ونوع المحتوى المطلوب والمنطقة المستهدفة.
               </p>
             </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">
-              ما الفرق بين الـClipping ومحتوى UGC؟<span class="plus">+</span>
-            </button>
-            <div class="faq-a">
+            <div class="step reveal">
+              <div class="idx">01 — المحتوى</div>
+              <h3>حدد لنا المحتوى</h3>
               <p>
-                الـClipping يعتمد على مادة تملكها أصلاً — نقصّ البودكاست أو البث
-                أو الفيديو إلى لحظات قصيرة. أما محتوى UGC فهو تصوير جديد: صنّاع
-                محتوى يصوّرون مادة أصلية عن منتجك أو علامتك، بتوجيه وإشراف منّا.
-                معظم عملائنا يجمعون بين الاثنين.
+                ارفع البودكاست أو البث أو الفيديو الطويل أو قم بوصف المحتوى الذي
+                ترغب في إنشائه من الصفر.
               </p>
             </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">
-              كم التكلفة؟<span class="plus">+</span>
-            </button>
-            <div class="faq-a">
-              <p>احجز مكالمة الآن! وسنجهّز لك عرض سعر بناءً على ما لديك.</p>
+            <div class="step reveal">
+              <div class="idx">02 — الإنتاج</div>
+              <h3>Clipping ومحتوى UGC</h3>
+              <p>نقصّ المقاطع ونصوّر محتوى UGC حسب طلبك.</p>
             </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">
-              متى أرى النتائج؟<span class="plus">+</span>
-            </button>
-            <div class="faq-a">
-              <p>
-                معظم العملاء يرون أول دفعة Clips منشورة خلال 48 إلى 72 ساعة من
-                بدء العمل. تصوير محتوى UGC يستغرق وقتاً أطول قليلاً، لأن صنّاع
-                المحتوى يحتاجون وقتاً للتحضير والتصوير.
-              </p>
+            <div class="step reveal">
+              <div class="idx">03 — النشر</div>
+              <h3>أطلق الصدى</h3>
+              <p>كل شيء يُنشر عبر مواقع التواصل الاجتماعي، دفعة واحدة.</p>
             </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">
-              هل يمكنني الانضمام إلى شبكة صنّاع المحتوى؟<span class="plus"
-                >+</span
-              >
-            </button>
-            <div class="faq-a">
-              <p>
-                نعم — نستقبل باستمرار Clippers وصنّاع محتوى UGC يتقنون العربية
-                والإنجليزية. تواصل معنا عبر واتساب أو من خلال قسم التواصل أدناه
-                للتقديم.
-              </p>
+            <div class="step reveal">
+              <div class="idx">04 — التقارير</div>
+              <h3>تابع كل شيء</h3>
+              <p>المشاهدات والوصول والأداء، مباشرة على لوحة واحدة.</p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="contact alt-bg" id="contact">
-      <div class="glow-blob g1" style="top: -260px"></div>
-      <div class="wrap">
-        <div class="section-head reveal center">
-          <span class="eyebrow" style="justify-content: center">هيا نبدأ</span>
-          <h2>احجز مكالمة الآن!</h2>
-          <p>اختر الوقت المناسب لك — وسنرسم معك ملامح حملتك الأولى.</p>
-        </div>
-
-        <div class="contact-grid reveal">
-          <div class="calendly-wrap">
-            <div
-              class="calendly-inline-widget"
-              data-url="https://calendly.com/webelle"
-            ></div>
-          </div>
-
-          <div class="contact-side">
-            <div class="contact-card">
-              <h3>تواصل معنا مباشرة</h3>
-              <a class="contact-line ltr" href="mailto:malek@webelle.ae"
-                >malek@webelle.ae</a
+      <section id="why">
+        <div class="wrap">
+          <div class="why-grid">
+            <div class="why-list">
+              <span
+                class="eyebrow"
+                style="margin-bottom: 24px; display: inline-flex"
+                >لماذا صدى</span
               >
-              <a class="contact-line ltr" href="tel:+971568457550"
-                >+971 56 845 7550</a
-              >
-              <a
-                class="contact-line"
-                href="https://wa.me/971568457550"
-                target="_blank"
-                rel="noopener"
-                >راسلنا على واتساب</a
-              >
+              <div class="why-item reveal">
+                <span class="n">01</span>
+                <div>
+                  <h4>محتوى بلغة صانعه</h4>
+                  <p>
+                    كل Clip وكل UGC يُنتَج بلغة صانع المحتوى نفسه — عربي أو
+                    إنجليزي حسب ما يناسب محتواه، لا ترجمة تُضاف لاحقاً.
+                  </p>
+                </div>
+              </div>
+              <div class="why-item reveal">
+                <span class="n">02</span>
+                <div>
+                  <h4>صنّاع محتوى حقيقيون، بلا حسابات وهمية</h4>
+                  <p>
+                    كل حساب في الشبكة مُتحقَّق منه وحقيقي — المشاهدات الوهمية
+                    تعرّض علامتك وتقاريرك للخطر.
+                  </p>
+                </div>
+              </div>
+              <div class="why-item reveal">
+                <span class="n">03</span>
+                <div>
+                  <h4>مصمّم للعالم العربي</h4>
+                  <p>
+                    صنّاع محتوانا يفهمون الجمهور العربي - على علم بالمنصات,
+                    الترندات, و المحتوى الجاذب للمشاهدات.
+                  </p>
+                </div>
+              </div>
+              <div class="why-item reveal">
+                <span class="n">04</span>
+                <div>
+                  <h4>شفافية كاملة</h4>
+                  <p>
+                    المشاهدات والوصول والأداء تُتابَع مباشرة — بلا تقارير غامضة،
+                    وبلا انتظار ملف شهري.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="socials">
-              <a
-                href="https://www.instagram.com/sadaclip/"
-                target="_blank"
-                rel="noopener"
-                class="social-pill"
-                >إنستغرام</a
-              >
-              <a
-                href="https://www.tiktok.com/@sada.clips"
-                target="_blank"
-                rel="noopener"
-                class="social-pill"
-                >تيك توك</a
-              >
-              <a
-                href="https://wa.me/971568457550"
-                target="_blank"
-                rel="noopener"
-                class="social-pill"
-                >واتساب</a
-              >
+            <div class="why-visual reveal">
+              <div class="ring w1"></div>
+              <div class="ring w2"></div>
+              <div class="ring w3"></div>
+              <span class="word" lang="en" dir="ltr">SADA</span>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section id="verticals" class="alt-bg">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="eyebrow">لمن هذه الخدمة</span>
+            <h2>مهما كان محتواك، نجعله يصل</h2>
+            <p>ثمانية أنواع من العملاء، ومحرّك واحد للـClipping ومحتوى UGC.</p>
+          </div>
+          <div class="vgrid">
+            <div class="vcard reveal">
+              <div class="glyph">01</div>
+              <h3>البودكاسترز</h3>
+              <p>كل حلقة تتحول إلى مقاطع كثيرة وتنشر في كل مكان.</p>
+            </div>
+            <div class="vcard reveal">
+              <div class="glyph">02</div>
+              <h3>الستريمرز</h3>
+              <p>نأخذ أفضل اللحظات من كل بث ونحوله إلى ترند.</p>
+            </div>
+            <div class="vcard reveal">
+              <div class="glyph">03</div>
+              <h3>العلامات التجارية والشركات</h3>
+              <p>محتوى عن الخدمات والمنتجات والعروض والمقابلات.</p>
+            </div>
+            <div class="vcard reveal">
+              <div class="glyph">04</div>
+              <h3>شركات الإنتاج الإعلامي والسينمائي</h3>
+              <p>محتوى عن المسلسلات والأفلام والبرامج التلفزيونية</p>
+            </div>
+            <div class="vcard reveal">
+              <div class="glyph">05</div>
+              <h3>الموسيقيون</h3>
+              <p>
+                الكثير من المقاطع القصيرة التي تروّج لأغانيك، حفلاتك، وألبوماتك.
+              </p>
+            </div>
+            <div class="vcard reveal">
+              <div class="glyph">06</div>
+              <h3>صنّاع المحتوى</h3>
+              <p>
+                كل محتوى تصنعه يتحول إلى الكثير من المقاطع القصيرة التي تجذب
+                جمهوراً جديداً.
+              </p>
+            </div>
+            <div class="vcard reveal">
+              <div class="glyph">07</div>
+              <h3>اليوتيوبرز</h3>
+              <p>
+                كل فيديو طويل يتحول إلى عشرات المقاطع القصيرة التي تجذب مشاهدين
+                جدد.
+              </p>
+            </div>
+            <div class="vcard reveal">
+              <div class="glyph">08</div>
+              <h3>الأحداث والفعاليات والحفلات الموسيقية</h3>
+              <p>محتوى فيروسي يجذب الحضور ويزيد مبيعات التذاكر.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="wrap">
+          <div class="section-head reveal center">
+            <span class="eyebrow" style="justify-content: center"
+              >الأسئلة الشائعة</span
+            >
+            <h2>أسئلة، وإجابات</h2>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-q">
+                ما الذي تقدّمه صدى بالضبط؟<span class="plus">+</span>
+              </button>
+              <div class="faq-a">
+                <p>
+                  نعمل مع شبكة من صناع المحتوى المتخصصين في الفيديوهات القصيرة،
+                  حيث يختارون أفضل اللحظات من المحتوى الطويل أو ينتجون محتوى
+                  أصلياً لعملائنا، ثم يحولونها إلى مقاطع جذابة وينشرونها عبر
+                  حساباتهم على TikTok و Instagram و YouTube Shorts للوصول إلى
+                  جماهير جديدة و الإنتشار بشكل فيروسي.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                ما الفرق بين الـClipping ومحتوى UGC؟<span class="plus">+</span>
+              </button>
+              <div class="faq-a">
+                <p>
+                  الـClipping يعتمد على مادة تملكها أصلاً — نقصّ البودكاست أو
+                  البث أو الفيديو إلى لحظات قصيرة. أما محتوى UGC فهو تصوير جديد:
+                  صنّاع محتوى يصوّرون مادة أصلية عن منتجك أو علامتك، بتوجيه
+                  وإشراف منّا. معظم عملائنا يجمعون بين الاثنين.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                كم التكلفة؟<span class="plus">+</span>
+              </button>
+              <div class="faq-a">
+                <p>احجز مكالمة الآن! وسنجهّز لك عرض سعر بناءً على ما لديك.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                متى أرى النتائج؟<span class="plus">+</span>
+              </button>
+              <div class="faq-a">
+                <p>
+                  معظم العملاء يرون أول دفعة Clips منشورة خلال 48 إلى 72 ساعة من
+                  بدء العمل. تصوير محتوى UGC يستغرق وقتاً أطول قليلاً، لأن صنّاع
+                  المحتوى يحتاجون وقتاً للتحضير والتصوير.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                هل يمكنني الانضمام إلى شبكة صنّاع المحتوى؟<span class="plus"
+                  >+</span
+                >
+              </button>
+              <div class="faq-a">
+                <p>
+                  نعم — نستقبل باستمرار Clippers وصنّاع محتوى UGC يتقنون العربية
+                  والإنجليزية. تواصل معنا عبر واتساب أو من خلال قسم التواصل
+                  أدناه للتقديم.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact alt-bg" id="contact">
+        <div class="glow-blob g1" style="top: -260px"></div>
+        <div class="wrap">
+          <div class="section-head reveal center">
+            <span class="eyebrow" style="justify-content: center"
+              >هيا نبدأ</span
+            >
+            <h2>احجز مكالمة الآن!</h2>
+            <p>اختر الوقت المناسب لك — وسنرسم معك ملامح حملتك الأولى.</p>
+          </div>
+
+          <div class="contact-grid reveal">
+            <div class="contact-side">
+              <div class="contact-card">
+                <h3>تواصل معنا مباشرة</h3>
+                <a class="contact-line ltr" href="mailto:malek@webelle.ae"
+                  >malek@webelle.ae</a
+                >
+                <a class="contact-line ltr" href="tel:+971568457550"
+                  >+971 56 845 7550</a
+                >
+                <a
+                  class="contact-line"
+                  href="https://wa.me/971568457550"
+                  target="_blank"
+                  rel="noopener"
+                  >راسلنا على واتساب</a
+                >
+                <a
+                  class="contact-line"
+                  href="https://calendly.com/webelle"
+                  target="_blank"
+                  rel="noopener"
+                  >احجز موعداً عبر Calendly ↗</a
+                >
+              </div>
+              <div class="socials">
+                <a
+                  href="https://www.instagram.com/sadaclip/"
+                  target="_blank"
+                  rel="noopener"
+                  class="social-pill"
+                  >إنستغرام</a
+                >
+                <a
+                  href="https://www.tiktok.com/@sada.clips"
+                  target="_blank"
+                  rel="noopener"
+                  class="social-pill"
+                  >تيك توك</a
+                >
+                <a
+                  href="https://wa.me/971568457550"
+                  target="_blank"
+                  rel="noopener"
+                  class="social-pill"
+                  >واتساب</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer>
       <div class="wrap">
         <div class="top">
           <div class="logo">
-            <img
-              src="/assets/sada_logo.png"
-              alt="شعار صدى"
-              class="logo-mark"
-              width="34"
-              height="34"
-            />
+            <picture>
+              <source srcset="/assets/sada_logo.webp" type="image/webp" />
+              <img
+                src="/assets/sada_logo.png"
+                alt="شعار صدى"
+                class="logo-mark"
+                width="84"
+                height="34"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div class="cols">
             <div class="col">
@@ -646,10 +678,6 @@
       </div>
     </footer>
 
-    <script
-      src="https://assets.calendly.com/assets/external/widget.js"
-      async
-    ></script>
     <script src="/script.js" defer></script>
   </body>
 </html>

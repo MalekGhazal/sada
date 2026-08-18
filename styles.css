@@ -7,6 +7,7 @@
   --violet-2: #8f6bf5;
   --cream: #f0eee0;
   --muted: rgba(240, 238, 224, 0.58);
+  --muted-dim: rgba(240, 238, 224, 0.72);
   --line: rgba(240, 238, 224, 0.1);
   --max: 1180px;
   --ease: cubic-bezier(0.22, 0.98, 0.28, 1);
@@ -145,7 +146,7 @@ footer .logo-mark {
   font-size: 0.6rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(240, 238, 224, 0.4);
+  color: var(--muted-dim);
 }
 
 nav.links {
@@ -419,7 +420,7 @@ nav.links a:hover {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.2em;
-  color: rgba(240, 238, 224, 0.35);
+  color: var(--muted-dim);
   text-transform: uppercase;
   margin-bottom: 18px;
 }
@@ -434,7 +435,7 @@ nav.links a:hover {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.85rem;
   letter-spacing: 0.08em;
-  color: rgba(240, 238, 224, 0.4);
+  color: var(--muted-dim);
 }
 
 .cta-row {
@@ -860,11 +861,13 @@ section {
   overflow: hidden;
 }
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 480px;
+  margin: 10px auto 0;
   text-align: start;
-  margin-top: 10px;
 }
 .calendly-wrap {
   background: var(--card);
@@ -879,8 +882,57 @@ section {
   height: 100%;
 }
 
+/* Calendly is loaded on demand — this placeholder stands in until the
+   visitor asks for it, so the ~1MB widget bundle and its third-party
+   cookies never load on a page visit that doesn't need them. */
+.calendly-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+  min-height: 480px;
+  padding: 40px 24px;
+}
+.calendly-placeholder p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  max-width: 40ch;
+  line-height: 1.6;
+}
+.calendly-placeholder .btn {
+  cursor: pointer;
+}
+.calendly-spinner {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(240, 238, 224, 0.25);
+  border-top-color: var(--violet-2);
+  animation: spin 0.8s linear infinite;
+  display: none;
+}
+.calendly-placeholder.loading .calendly-spinner {
+  display: block;
+}
+.calendly-placeholder.loading button {
+  display: none;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 900px) {
+  .calendly-placeholder {
+    min-height: 320px;
+  }
+}
+
 .contact-side {
   display: flex;
+  width: stretch;
   flex-direction: column;
   gap: 24px;
 }
@@ -925,6 +977,7 @@ section {
 
 .socials {
   display: flex;
+  justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
 }
@@ -980,7 +1033,7 @@ footer .col h4 {
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(240, 238, 224, 0.4);
+  color: var(--muted-dim);
   margin-bottom: 16px;
 }
 footer .col a {
@@ -998,13 +1051,20 @@ footer .bottom {
   align-items: center;
   padding-top: 26px;
   font-size: 0.8rem;
-  color: rgba(240, 238, 224, 0.4);
+  color: var(--muted-dim);
   flex-wrap: wrap;
   gap: 12px;
 }
 footer .bottom .tag {
   font-family: var(--font-mono);
   letter-spacing: 0.05em;
+}
+/* Inline links inside body copy need more than color alone to read as
+   links — underline them so they don't rely on color contrast/vision
+   to be distinguishable. */
+footer .bottom a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* RTL ADJUSTMENTS */

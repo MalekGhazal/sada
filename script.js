@@ -36,6 +36,39 @@ document.querySelectorAll('.faq-item').forEach((item) => {
   });
 });
 
+// Calendly — loaded on demand. The widget script (~1MB, unused JS/CSS)
+// and its third-party cookies only load once the visitor actually asks
+// to see available times, instead of on every single page load.
+(function () {
+  const btn = document.getElementById('loadCalendlyBtn');
+  const placeholder = document.getElementById('calendlyPlaceholder');
+  const wrap = document.getElementById('calendlyWrap');
+  if (!btn || !placeholder || !wrap) return;
+
+  let loading = false;
+  btn.addEventListener('click', () => {
+    if (loading) return;
+    loading = true;
+    placeholder.classList.add('loading');
+
+    const url = wrap.getAttribute('data-calendly-url');
+
+    const widget = document.createElement('div');
+    widget.className = 'calendly-inline-widget';
+    widget.setAttribute('data-url', url);
+    widget.style.minHeight = '480px';
+
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    script.onload = () => {
+      placeholder.remove();
+      wrap.appendChild(widget);
+    };
+    document.body.appendChild(script);
+  });
+})();
+
 // Rotating hero word — language-agnostic. Reads its word list from the
 // data-words attribute on #rotWord (a JSON array string), so the same
 // script drives both the Arabic and English homepages.
